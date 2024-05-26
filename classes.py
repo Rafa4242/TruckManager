@@ -3,10 +3,10 @@ from utils import clear_lines, wait_key, ask_number, colors
 
 
 # Defines the stop class, which is used to track the values
-class StopTracker:  # Frank
-    def __init__(self):  # Frank
-        self.loaded_packages = 0  # Frank
-        self.departure_weight = 0.  # Frank
+class StopTracker: 
+    def __init__(self): 
+        self.loaded_packages = 0 
+        self.departure_weight = 0.
 
 
 # Defines the package class, which is used to have a specific weight and value for each package
@@ -23,9 +23,9 @@ class Truck:
         self.max_volume = None
         self.coverage = None
         self.truck_art = None
-        self.stop_history = []  # Frank?
+        self.stop_history = []
         self.package_history = []
-        self.statistics = [0., 0.]  # Rafaelle!
+        self.statistics = [0., 0.] 
 
         if max_volume:
             self.set_volume(max_volume)
