@@ -1,6 +1,4 @@
 # Imports
-import argparse  # Argument parser, smoother than argv
-
 from art import print_main_menu, print_sub_menu, truck_status, show_report  # Menus
 from classes import Truck, Package, StopTracker  # The package, tracker and truck objects
 from utils import *
@@ -173,22 +171,10 @@ def main():
 
 # If this file is the main file (and not serving only as an import)
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='An useful manager created to help '
-                                                 'you with your truck management job.')
-    parser.add_argument('-mv',
-                        metavar="volume",
-                        type=int,
-                        help='Specifies the maximum volume space in your truck (in m°).')
-    parser.add_argument('-mw',
-                        metavar="weight",
-                        type=float,
-                        help='Specifies the maximum weight your truck can carry (in kg).')
-
-    args = parser.parse_args()       # Parse and validate user input
-    truck = Truck(args.mv, args.mw)  # Sets the global truck variable
+    truck = Truck()  # Sets the global truck variable
 
     try:
         main()
     except KeyboardInterrupt:
-        print("\nGoodbye! (whoa you're fast)")
+        print("\nGoodbye!")
         exit()
