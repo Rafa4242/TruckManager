@@ -87,15 +87,15 @@ def stop_menu():
         match choice:
             case "1":
                 if len(truck.packages) < truck.max_volume:  # Works only when there are free package slots
-                    if load_package():  # not Frank
-                        tracker.loaded_packages += 1  # Frank
+                    if load_package():
+                        tracker.loaded_packages += 1
             case "2":
                 if len(truck.packages):               # Works only if there are packages in the truck
                     unload_package()
             case "3":
                 if tracker.loaded_packages:  # Prevents the truck from saving empty trackers
-                    tracker.departure_weight = truck.get_total_weight()  # Frank
-                    truck.stop_history.append(tracker)  # Frank
+                    tracker.departure_weight = truck.get_total_weight()
+                    truck.stop_history.append(tracker)
                 break
 
 
@@ -103,7 +103,7 @@ def stop_menu():
 def main():
     global truck
     warning = None  # Used to display warnings, in case they exist
-    day_finished = False  # If option 5 has been already selected
+    day_finished = None  # If option 5 has been already selected
 
     purge()
     print(f"- Welcome to the {colors.PINK}super {colors.YELLOW}Truck Manager {colors.BLUE}2000{colors.END}!")
@@ -126,7 +126,7 @@ def main():
 
         match choice:  # Matches the selected choice
             case "1":  # Start day function
-                if day_finished:
+                if day_finished or day_finished is None:
                     truck = Truck()       # First of all, resets the truck
                     day_finished = False  # Restarts the day
                     truck.initialize()    # And then initializes
@@ -156,7 +156,7 @@ def main():
             case "4":  # This function shows a nice representation of your truck
                 truck.display_packages()
             case "5":  # Function used to finish operations by this day
-                if not day_finished:
+                if day_finished is False:
                     print(f"{colors.PINK}- The workday is over!{colors.END}")
                     print()
                     day_finished = True
