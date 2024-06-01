@@ -6,7 +6,7 @@ The original project is available with the tag 1.0 in releases.
 
 This is a reworked version made to run in a docker.
 
-The following command builds the image and runs the CLI in an interactive shell with the docker
+The following command builds the image and runs the CLI in an interactive shell within the docker
 ```bash
 docker build -t truck_manager .
 docker run -it --name TruckManagerServer --rm truck_manager
