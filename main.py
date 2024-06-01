@@ -87,15 +87,15 @@ def stop_menu():
         match choice:
             case "1":
                 if len(truck.packages) < truck.max_volume:  # Works only when there are free package slots
-                    if load_package():  # not Frank
-                        tracker.loaded_packages += 1  # Frank
+                    if load_package():
+                        tracker.loaded_packages += 1
             case "2":
                 if len(truck.packages):               # Works only if there are packages in the truck
                     unload_package()
             case "3":
                 if tracker.loaded_packages:  # Prevents the truck from saving empty trackers
-                    tracker.departure_weight = truck.get_total_weight()  # Frank
-                    truck.stop_history.append(tracker)  # Frank
+                    tracker.departure_weight = truck.get_total_weight()
+                    truck.stop_history.append(tracker)
                 break
 
 
