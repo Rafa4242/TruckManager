@@ -92,23 +92,23 @@ def truck_status(truck):
 def print_main_menu(day_finished):
     option_3 = f"{colors.GREEN}3{colors.END} - Check on the truck"
     option_4 = f"{colors.GREEN}4{colors.END} - Show packages"
-    if day_finished is True:
-        option_1 = f'{colors.GREEN}1{colors.END} - Begin the day, set your truck\'s capacities'
-        option_2 = f'{colors.GRAY}[Locked, start another day first]{colors.END}'
-        option_5 = f'{colors.GRAY}[Locked, your workday is already over]{colors.END}'
-        option_6 = f'{colors.GREEN}6{colors.END} - Show a report of the day'
-    elif day_finished is False:
-        option_1 = f'{colors.GRAY}[Locked, your day has already started]{colors.END}'
-        option_2 = f'{colors.GREEN}2{colors.END} - Stop the truck to load or unload packages'
-        option_5 = f'{colors.GREEN}5{colors.END} - End the day'
-        option_6 = f'{colors.GRAY}[Locked, finish the workday first]{colors.END}'
-    else:
+    if day_finished is None:  # If it is the first day
         option_1 = f'{colors.GREEN}1{colors.END} - Begin the day, set your truck\'s capacities'
         option_2 = f'{colors.GRAY}[Locked, begin the day first]{colors.END}'
         option_3 = f'{colors.GRAY}[Locked, begin the day first]{colors.END}'
         option_4 = f'{colors.GRAY}[Locked, begin the day first]{colors.END}'
         option_5 = f'{colors.GRAY}[Locked, begin the day first]{colors.END}'
         option_6 = f'{colors.GRAY}[Locked, begin the day first]{colors.END}'
+    elif day_finished is False:  # If the day has begun
+        option_1 = f'{colors.GRAY}[Locked, your day has already started]{colors.END}'
+        option_2 = f'{colors.GREEN}2{colors.END} - Stop the truck to load or unload packages'
+        option_5 = f'{colors.GREEN}5{colors.END} - End the day'
+        option_6 = f'{colors.GRAY}[Locked, finish the workday first]{colors.END}'
+    else:  # If the day is over
+        option_1 = f'{colors.GREEN}1{colors.END} - Begin the day, set your truck\'s capacities'
+        option_2 = f'{colors.GRAY}[Locked, start another day first]{colors.END}'
+        option_5 = f'{colors.GRAY}[Locked, your workday is already over]{colors.END}'
+        option_6 = f'{colors.GREEN}6{colors.END} - Show a report of the day'
 
     print(f'''            {colors.RED}╔══════════════════════════╗     
             ║    {colors.YELLOW}Truck Manager{colors.END} {colors.CYAN}2000{colors.RED}    ║             
