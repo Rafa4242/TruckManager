@@ -8,8 +8,8 @@ This is a reworked version made to run in a docker.
 
 The following command builds the image and runs the CLI in an interactive shell within the docker
 ```bash
-docker build -t truck_manager .
-docker run -it --name TruckManagerServer --rm truck_manager
+chmod +x ./build_docker.sh
+sudo ./build_docker.sh
 ```
 
 ![image](https://github.com/Rafa4242/TruckManager/assets/170863504/d111d279-bd9e-40f7-a952-c07efc52db61)
